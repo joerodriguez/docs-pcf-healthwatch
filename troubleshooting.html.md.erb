@@ -24,3 +24,8 @@ This topic describes how to resolve common issues with the Pivotal Cloud Foundry
 
 * This issue should not occur on an environment where the Apps Manager errand has run. The Apps Manager errand will set the default `system` org quota to `runaway` as service tiles leverage the `system` org in order to execute necessary product smoke tests. If the Apps Manager errand has not be run, or it failed, the default `system` quota may not be reset properly, leading to this possible error.
 * To resolve this issue, you can modify the default `healthwatch` space quota to at least 24GB, and re-run the `push-apps` errand manually.
+
+## <a id='missing-bosh-metrics'></a> Missing BOSH Metrics
+
+* If you do not see expected metrics from BOSH, ensure that the manual configuration steps have been repeated after the last BOSH Director update. It is a [Known Issue](release-notes.html) that you must repeat the [Getting BOSH Health Metrics](installing.html#bosh-metrics) steps every time the BOSH Director is recreated. The BOSH Director is recreated when you upgrade Ops Manager and install, upgrade, and delete data service tiles (for example, MySQL, RabbitMQ, or Redis).
+
